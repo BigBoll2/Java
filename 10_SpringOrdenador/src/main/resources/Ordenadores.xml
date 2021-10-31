@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	
+	<bean id="ram1" class="componentes.Ram" scope="singleton">
+		<property name="precio" value="50"></property>
+		<property name="hz" value="3000"></property>
+		<property name="gb" value="8"></property>
+		<property name="tipo" value="DDR4"></property>
+	</bean>
+	<bean id="ram2" class="componentes.Ram" scope="singleton">
+		<property name="precio" value="50"></property>
+		<property name="hz" value="3000"></property>
+		<property name="gb" value="8"></property>
+		<property name="tipo" value="DDR4"></property>
+	</bean>
+	<bean id="gpuram" class="componentes.Ram" scope="singleton">
+		<property name="precio" value='100'></property>
+		<property name="hz" value="3000"></property>
+		<property name="gb" value="12"></property>
+		<property name="tipo" value="DDR6"></property>
+	</bean>
+	
+	<bean id="listaRams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="Ram">
+				<ref bean="ram1"/>
+				<ref bean="ram2"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean id="GPU" class="componentes.TarjetaGrafica" scope="singleton">
+		<property name="precio" value="1600"></property>
+		<property name="marca" value="Nvidia"></property>
+		<property name="ram" ref="gpuram"></property>
+		<property name="modelo" value="RTX 3080"></property>
+	</bean>
+	
+	
+	<bean id="placabase" class="componentes.PlacaBase">
+		<property name="precio" value="89.99"></property>
+		<property name="marca" value="Asus"></property>
+		<property name="modelo" value="B550"></property>
+	</bean>
+	
+	
+	<bean id="procesador" class="componentes.Procesador" scope="singleton">
+		<property name="precio" value="475"></property>
+		<property name="hz" value="5"></property>
+		<property name="marca" value="AMD"></property>
+		
+	</bean>
+	
+	
+	<bean id="OrdenadorAcer" class="ordenador.Ordenador" scope="singleton">
+		<property name="precio" value="1"></property>
+		<property name="marca" value="Acer"></property>
+		<property name="listaRam" ref="ram1"></property>
+		<property name="procesador" ref="procesador"></property>
+		<property name="tg" ref="GPU"></property>
+		<property name="placabase" ref="placabase"></property>
+		
+	</bean>
+	
+
+
+</beans>
+
+

@@ -69,7 +69,15 @@ public class CocheControllador implements CocheDAO{
 			ps.setString(4, coche.getModelo());
 			ps.setInt(5, coche.getKilometros());
 
-			ps.executeUpdate();
+			
+			
+			if (coche.getMatricula().length() == 7 && !coche.getMarca().isEmpty() && !coche.getModelo().isEmpty()
+					&& !coche.getMatricula().isEmpty()) {
+				
+				ps.executeUpdate();
+			}else {
+				System.err.println("A abido un error al introducir los datos del coche. Revisa si los datos son corectos.");
+			}
 
 		} catch (SQLException e) {
 			System.out.println("Se ha producido un error al insertar el coche");

@@ -46,6 +46,8 @@ public class Main {
 					break;
 
 				case 2:
+					/*
+					 * No funciona bien.. nececito más tiempo
 					int id = sc.nextInt();
 					String matricula = sc.nextLine();
 					String marca = sc.nextLine();
@@ -59,7 +61,17 @@ public class Main {
 					} else {
 						System.out.println("Ha abido un error, no se ha podido insertar el Coche.");
 					}
-
+*/
+					break;
+				case 3:
+					
+					
+					
+					break;
+				case 4: 
+					
+					
+					
 					break;
 
 				default:
